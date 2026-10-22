@@ -1,0 +1,17 @@
+{
+  "appId": "com.obt.app",
+  "appName": "OBT",
+  "webDir": "public",
+  "backgroundColor": "#0C1116",
+  "android": {
+    "backgroundColor": "#0C1116",
+    "adjustMarginsForEdgeToEdge": "force"
+  },
+  "plugins": {
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#0C1116",
+      "overlaysWebView": false
+    }
+  }
+}
