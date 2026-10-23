@@ -1,5 +1,5 @@
 /* OBT offline cache. Bump VERSION when you publish a new build. */
-const VERSION = 'obt-v1';
+const VERSION = 'obt-v2';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

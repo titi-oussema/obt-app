@@ -637,6 +637,123 @@ button.stat:hover{background:var(--surface-2)}
 .ob-row:first-child{border-top:0}
 .ob-foot{padding-top:14px;border-top:1px solid var(--line);gap:8px;flex-wrap:wrap}
 @media (max-width:760px){.admin-pill{display:none}.ob-card{padding:18px 16px}}
+
+/* ===== Native app feel ===== */
+.appbar{display:none}
+.main.enter{animation:pageIn .22s ease-out}
+@keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* Profile header */
+.prof{overflow:hidden}
+.prof .cover{height:170px}
+.prof-top{display:flex;align-items:flex-start;gap:18px;padding:0 20px;position:relative;z-index:2}
+.prof-top>.av-wrap,.prof-top>.ring{margin-top:-52px}
+.prof-top .prof-stats{align-self:center;padding:8px 0 0}
+.av-wrap{display:inline-flex;border-radius:50%;flex:none}
+.av-wrap .av,.prof-top .ring .av{border:4px solid var(--surface)}
+.prof-top .ring.big{margin-top:0;padding:3px;flex:none}
+.prof-stats{flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;padding-bottom:4px;min-width:0}
+.pstat{display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 2px;border-radius:10px;min-width:0}
+button.pstat:hover{background:var(--surface-2)}
+.pstat b{font-family:var(--f-mono);font-size:1.12rem;font-weight:600;font-variant-numeric:tabular-nums}
+.pstat span{font-size:.74rem;color:var(--muted);white-space:nowrap}
+.prof-body{padding:12px 20px 18px;display:flex;flex-direction:column;gap:10px}
+.prof-name{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:1.5rem}
+.prof-actions{display:flex;gap:8px;margin-top:4px}
+.prof-actions>.btn{flex:1;min-width:0}
+.prof-actions .btn.sq{flex:none;width:40px;padding:0}
+/* Quick compose */
+.qc{padding:12px 14px 8px;display:flex;flex-direction:column;gap:8px}
+.qc-in{display:flex;align-items:center;gap:10px;width:100%;text-align:left}
+.qc-ph{flex:1;height:42px;border-radius:21px;background:var(--surface-2);border:1px solid var(--line);display:flex;align-items:center;padding:0 16px;color:var(--muted);font-size:.95rem}
+.qc-acts{display:flex;border-top:1px solid var(--line);padding-top:6px}
+.qc-acts button{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:8px;font-size:.86rem;font-weight:600;color:var(--muted)}
+.qc-acts button:nth-child(1) .ic{color:var(--long)}
+.qc-acts button:nth-child(2) .ic{color:var(--accent)}
+.qc-acts button:nth-child(3) .ic{color:var(--trust)}
+.modal .composer{border:0;padding:0;background:transparent;box-shadow:none}
+/* Sheets */
+.sheet-opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:10px 6px;border-radius:12px}
+.sheet-opt:hover{background:var(--surface-2)}
+.so-ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none}
+.sheet-search{margin:0!important;display:block!important;max-width:none}
+.sheet-res .dropdown{position:static;box-shadow:none;border:0;max-height:none;border-radius:0}
+.sheet-res .sr-item{padding:10px 4px}
+.sheet-res .sr-head{padding:12px 4px 4px}
+/* Menu */
+.menu-me{display:flex;align-items:center;gap:12px;padding:14px 16px;width:100%}
+.tile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;text-align:left;min-width:0}
+.tile-ic{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:6px}
+.menu-list{overflow:hidden}
+.ml-row{display:flex;align-items:center;gap:12px;width:100%;padding:15px 16px;border-top:1px solid var(--line);text-align:left;font-weight:500}
+.ml-row:first-child{border-top:0}
+.ml-row.danger{color:var(--short)}
+/* Journal list */
+.jl{overflow:hidden}
+.jl-row{display:flex;align-items:center;gap:10px;padding:10px 8px 10px 16px;border-top:1px solid var(--line)}
+.jl-row:first-child{border-top:0}
+.jl-main{flex:1;min-width:0;text-align:left;display:flex;flex-direction:column;gap:3px}
+.jl-r{text-align:right;flex:none}
+/* Touch feedback */
+@media (hover:none){
+  .btn,.icon-btn,.p-act,.chip,.tile,.sheet-opt,.qc-acts button,.pstat,.bn-ic,.bn-plus,.ml-row{transition:transform .1s ease}
+  .btn:active,.icon-btn:active,.p-act:active,.chip:active,.tile:active,.sheet-opt:active,.qc-acts button:active,.pstat:active,.ml-row:active{transform:scale(.96)}
+  .bn:active .bn-ic,.bn:active .bn-plus{transform:scale(.9)}
+}
+html.native,html.native button,html.native .tab,html.native .tile{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html.native input,html.native textarea,html.native .p-body,html.native .bub,html.native .cmt-bubble{-webkit-user-select:text;user-select:text}
+@media (max-width:760px){
+  .topbar{display:none}
+  .appbar{display:flex;align-items:center;gap:0;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;height:56px;background:var(--surface);border-bottom:1px solid var(--line);padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(6px,env(safe-area-inset-right,0px))}
+  .appbar .brand .wm{font-size:1.42rem}
+  .appbar .icon-btn{width:42px;height:42px;color:var(--fg)}
+  .appbar .badge-dot{top:4px;right:4px}
+  .ab-title{font-family:var(--f-display);font-size:1.5rem;font-weight:700;margin:0 0 0 4px;letter-spacing:-.02em;line-height:1}
+  .ab-title.sm{font-size:1.08rem;margin-left:2px;min-width:0;flex:0 1 auto}
+  .ab-back{margin-left:-6px}
+  .appbar .notif-panel{position:fixed;left:8px;right:8px;width:auto;top:calc(62px + env(safe-area-inset-top,0px))}
+  .shell,.shell.wide{padding-block:8px calc(92px + env(safe-area-inset-bottom,0px))}
+  .main{gap:8px}
+  .main>.card,.main>.tabs{margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));border-radius:0;border-left:0;border-right:0}
+  .main>.tabs{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:calc(56px + env(safe-area-inset-top,0px));z-index:30;padding:0 4px}
+  .main>.tabs .tab{flex:1 0 auto}
+  .ph{display:none}
+  h1{font-size:1.45rem}
+  .post{padding:14px 16px}
+  .prof .cover{height:132px}
+  .prof-top{padding:0 16px;gap:10px}
+  .prof-top>.av-wrap,.prof-top>.ring{margin-top:-43px}
+  .main>.menu-me{width:auto}
+  .day-head .streak span{display:none}
+  .day-head{flex-wrap:nowrap}
+  .day-head h2{font-size:1.15rem}
+  .prof-body{padding:10px 16px 16px}
+  .prof-name{font-size:1.35rem}
+  .pstat b{font-size:1.02rem}.pstat span{font-size:.7rem}
+  .msg-shell{height:calc(100dvh - 158px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
+  .shell.chat-mode{padding:0}
+  .chat-mode .main>.card{margin:0}
+  .chat-mode .msg-shell{height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));border:0;min-height:0}
+  .chat-head{position:sticky;top:0}
+  /* Bottom tab bar */
+  .bottom-nav{display:grid;grid-template-columns:repeat(5,1fr);align-items:end;position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--surface);background:color-mix(in srgb,var(--surface) 92%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-top:1px solid var(--line);padding:6px env(safe-area-inset-right,0px) calc(6px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,0px)}
+  .bn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:2px 0;font-size:.68rem;font-weight:500;color:var(--muted)}
+  .bn-ic{width:58px;height:32px;border-radius:16px;display:grid;place-items:center;transition:background .2s,transform .1s}
+  .bn.active{color:var(--fg);font-weight:700}
+  .bn.active .bn-ic{background:var(--accent-soft);color:var(--accent)}
+  .bn-av{display:inline-grid;border-radius:50%;padding:2px}
+  .bn.active .bn-av{box-shadow:0 0 0 2px var(--accent)}
+  .bn-create{align-self:center}
+  .bn-plus{width:52px;height:52px;border-radius:18px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 6px 18px rgba(168,106,12,.35);margin-top:-18px}
+  /* Bottom sheets */
+  .modal-back{place-items:end center;padding:0;align-items:end}
+  .modal{width:100%;max-width:100%;border-radius:22px 22px 0 0;border-left:0;border-right:0;border-bottom:0;max-height:calc(100dvh - 36px - env(safe-area-inset-top,0px));padding-bottom:env(safe-area-inset-bottom,0px);animation:sheetUp .24s cubic-bezier(.2,.8,.2,1)}
+  .modal::before{content:"";display:block;width:40px;height:5px;border-radius:3px;background:var(--line-2);margin:8px auto 0;flex:none}
+  .modal-head{padding:8px 18px 12px;border-bottom:0}
+  .modal-body{padding:4px 18px 18px}
+  #toasts{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+}
+@keyframes sheetUp{from{transform:translateY(60px);opacity:.5}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -963,7 +1080,7 @@ function viewHome(){
   else if(UI.feedTab==='trades')list=list.filter(p=>p.type==='trade'&&p.status!=='pending');
   else list=list.filter(p=>p.status!=='pending');
   list.sort((a,b)=>b.t-a.t);
-  let h=storiesBar()+dayCard()+biasCard()+composer(null);
+  let h=isMob()?storiesBar()+quickCompose(null)+dayCard()+biasCard():storiesBar()+dayCard()+biasCard()+composer(null);
   h+=`<div class="tabs" role="tablist" id="feed-tabs">${[['for','For you'],['trades','Trade ideas'],['discover','Discover']].map(([k,l])=>`<button class="tab ${UI.feedTab===k?'on':''}" data-act="feedTab" data-k="${k}">${l}</button>`).join('')}</div>`;
   if(!list.length)h+=`<div class="card empty">${ic('groups',28)}<div class="strong" style="color:var(--fg)">Your feed is quiet</div><div>Join a few groups or follow traders to fill it.</div><button class="btn btn-primary btn-sm" data-act="nav" data-view="groups">Find groups</button></div>`;
   h+=list.map((p,i)=>postCard(p)+(i===2?academyStrip():'')).join('');
@@ -978,7 +1095,7 @@ function groupBtn(g,small=true){const m=memOf(g.id);const sz=small?'btn-sm':'';
 function groupCard(g){return `<div class="card g-card"><button class="band" style="background:${GCOL[g.color]};opacity:.9" data-act="nav" data-view="group" data-arg="${g.id}" aria-label="Open ${esc(g.name)}">${gav(g,48)}</button><div class="body"><button class="strong link" style="text-align:left;font-size:1rem" data-act="nav" data-view="group" data-arg="${g.id}">${esc(g.name)}</button><div class="row small muted" style="gap:8px">${g.privacy==='private'?ic('lock',14)+'Private':ic('globe',14)+'Public'}<span>·</span><span>${fmtK(memberCount(g))} members</span><span>·</span><span>${esc(g.market)}</span></div><div class="desc">${esc(g.desc)}</div><div class="foot"><span class="tiny muted">${DB.posts.filter(p=>p.groupId===g.id&&p.status==='live').length} posts</span>${groupBtn(g)}</div></div></div>`}
 function viewGroups(){
   const mine=myGroups(),pend=DB.groups.filter(g=>memOf(g.id)==='pending'),disc=DB.groups.filter(g=>!memOf(g.id));
-  let h=`<div class="row between" style="flex-wrap:wrap;gap:12px"><div><h1>Groups</h1><div class="muted small">Find your people: same market, same style.</div></div><button class="btn btn-primary" data-act="modal" data-k="createGroup">${ic('plus',18)}Create group</button></div>`;
+  let h=`<div class="row between" style="flex-wrap:wrap;gap:12px"><div><h1 class="ph">Groups</h1><div class="muted small">Find your people: same market, same style.</div></div><button class="btn btn-primary" data-act="modal" data-k="createGroup">${ic('plus',18)}Create group</button></div>`;
   h+=`<div class="tabs">${[['mine',`Your groups (${mine.length})`],['discover','Discover']].map(([k,l])=>`<button class="tab ${UI.groupsTab===k?'on':''}" data-act="groupsTab" data-k="${k}">${l}</button>`).join('')}</div>`;
   const list=UI.groupsTab==='mine'?[...mine,...pend]:disc;
   if(!list.length)h+=`<div class="card empty">${UI.groupsTab==='mine'?`You haven't joined any groups yet.<button class="btn btn-sm" data-act="groupsTab" data-k="discover">Discover groups</button>`:'You have joined every group. Create a new one!'}</div>`;
@@ -995,7 +1112,7 @@ function viewGroup(id){
     h+=`<label class="check" style="margin-top:14px;border-top:1px solid var(--line);padding-top:12px"><input type="checkbox" id="g-approval" data-act="toggleApproval" data-id="${id}" ${g.approval?'checked':''}><span>Admins approve new posts before they go live</span></label></div>`;
   }
   if(!canRead){h+=`<div class="card lockbox">${ic('lock',34)}<h2>This group is private</h2><div class="muted">Only members can see posts. ${m==='pending'?'Your request is waiting for the admin.':'Send a request to join.'}</div>${groupBtn(g,false)}</div>`;return h}
-  if(isIn(id))h+=composer(id);
+  if(isIn(id))h+=isMob()?quickCompose(id):composer(id);
   else h+=`<div class="card pad row between" style="flex-wrap:wrap;gap:10px"><span class="muted">Join this group to post and comment.</span>${groupBtn(g)}</div>`;
   const list=DB.posts.filter(p=>p.groupId===id&&canSee(p)).sort((a,b)=>b.t-a.t);
   h+=list.length?list.map(postCard).join(''):`<div class="card empty">No posts yet. Be the first to share a trade.</div>`;
@@ -1012,15 +1129,21 @@ function viewProfile(id){
   const tier=tierOf(id),rc=respectCount(id),gave=(DB.respect[id]||[]).includes(DB.session),hasStory=activeStories().some(x=>x.author===id);
   const postCount=DB.posts.filter(p=>p.author===id&&p.status==='live').length;const myCourses=DB.courses.filter(c=>c.author===id);
   const tierChip=tier==='pro'?`<button class="tier-chip pro" data-act="modal" data-k="tier" data-id="${id}">${PRO_SVG(16)}Verified Pro trader</button>`:tier==='trusted'?`<button class="tier-chip trusted" data-act="modal" data-k="tier" data-id="${id}">${TRUST_SVG(16)}Trusted by the community</button>`:mine?`<button class="tier-chip progress" data-act="modal" data-k="tier" data-id="${id}"><span class="pbar"><i style="width:${Math.min(100,rc)}%"></i></span>${rc} / 100 respect to get Trusted</button>`:'';
-  let h=`<div class="card" style="overflow:hidden"><div class="cover" style="${cover}"></div><div class="p-info"><div class="row between" style="align-items:flex-end;flex-wrap:wrap;gap:10px">${hasStory?`<button class="ring big" data-act="openStory" data-id="${id}" aria-label="View story">${av(u,96)}</button>`:av(u,96)}<div class="row" style="flex-wrap:wrap;gap:8px">${mine?`<button class="btn" data-act="modal" data-k="editProfile">${ic('edit',16)}Edit profile</button>${tier==='pro'?'':`<button class="btn" data-act="modal" data-k="applyPro">${PRO_SVG(16)}Get verified</button>`}`:`<button class="btn ${fol?'':'btn-primary'}" data-act="follow" data-id="${id}">${fol?ic('check',16)+'Following':ic('plus',16)+'Follow'}</button><button class="btn respect-btn ${gave?'on':''}" data-act="respect" data-id="${id}" aria-pressed="${gave}">${ic('heart',16)}${gave?'Respected':'Respect'}</button><button class="btn" data-act="message" data-id="${id}" aria-label="Message">${ic('chat',16)}</button>${u.system?'':`<button class="btn btn-ghost" data-act="report" data-id="${id}" data-k="user" aria-label="Report user" title="Report">${ic('flag',16)}</button>`}${isAdmin()&&!u.system?`<button class="btn" data-act="adUser" data-id="${id}">${ic('shield',16)}Manage</button>`:''}`}</div></div>
-  <div><h1 class="row" style="gap:4px;flex-wrap:wrap">${esc(u.name)}${vb(u,22)}</h1><div class="muted">@${esc(u.username)}${u.style?` · ${esc(u.style)}`:''}</div></div>${tierChip||(u.adminBadges||[]).length?`<div class="row" style="gap:6px;flex-wrap:wrap">${tierChip}${(u.adminBadges||[]).map(x=>`<span class="tier-chip staff">${ic('star',14)}${esc(x)}</span>`).join('')}</div>`:''}${isBlocked(id)?`<div class="soon-box" style="background:var(--short-soft)">${ic('ban',18)}<div class="small"><b>Suspended</b> · ${esc(u.blocked.reason||'')} · visible to admins only</div></div>`:''}${u.bio?`<div style="white-space:pre-wrap">${esc(u.bio)}</div>`:''}
-  <div class="row small muted" style="flex-wrap:wrap;gap:14px">${u.location?`<span class="row" style="gap:5px">${ic('pin',15)}${esc(u.location)}</span>`:''}<span>Joined ${new Date(u.joined).toLocaleDateString(undefined,{month:'long',year:'numeric'})}</span><span class="row" style="gap:5px">${ic('trend',15)}${trades.length} trades shared · ${wr} wins</span><span class="row" style="gap:5px">${ic('groups',15)}${gcount} groups</span></div>
-  ${(u.markets||[]).length?`<div class="chips">${u.markets.map(m=>`<span class="tag">${esc(m)}</span>`).join('')}</div>`:''}${badgeRow(id,mine)}</div>
-  <div class="stats ig"><div class="stat"><div class="v">${fmtK(postCount)}</div><div class="k">Posts</div></div><button class="stat" data-act="modal" data-k="follows" data-id="${id}" data-kind="followers"><div class="v">${fmtK(followers(id))}</div><div class="k">Followers</div></button><button class="stat" data-act="modal" data-k="follows" data-id="${id}" data-kind="following"><div class="v">${fmtK(followingCount(id))}</div><div class="k">Following</div></button><button class="stat" data-act="modal" data-k="tier" data-id="${id}"><div class="v">${fmtK(rc)}</div><div class="k">Respect</div></button></div></div>`;
+  const avS=isMob()?86:104,menuId='prof-'+id;
+  const avHtml=hasStory?`<button class="ring big" data-act="openStory" data-id="${id}" aria-label="View story">${av(u,avS)}</button>`:`<span class="av-wrap">${av(u,avS)}</span>`;
+  const stat=(v,k,attrs)=>attrs?`<button class="pstat" ${attrs}><b>${v}</b><span>${k}</span></button>`:`<div class="pstat"><b>${v}</b><span>${k}</span></div>`;
+  const stats=stat(fmtK(postCount),'Posts')+stat(fmtK(followers(id)),'Followers',`data-act="modal" data-k="follows" data-id="${id}" data-kind="followers"`)+stat(fmtK(followingCount(id)),'Following',`data-act="modal" data-k="follows" data-id="${id}" data-kind="following"`)+stat(fmtK(rc),'Respect',`data-act="modal" data-k="tier" data-id="${id}"`);
+  const actions=mine?`<button class="btn" data-act="modal" data-k="editProfile">${ic('edit',16)}Edit profile</button>${tier==='pro'?`<button class="btn" data-act="menuSaved">${ic('bookmark',16)}Saved</button>`:`<button class="btn" data-act="modal" data-k="applyPro">${PRO_SVG(16)}Get verified</button>`}`
+    :`<button class="btn ${fol?'':'btn-primary'}" data-act="follow" data-id="${id}">${fol?ic('check',16)+'Following':ic('plus',16)+'Follow'}</button><button class="btn respect-btn ${gave?'on':''}" data-act="respect" data-id="${id}" aria-pressed="${gave}">${ic('heart',16)}${gave?'Respected':'Respect'}</button><button class="btn sq" data-act="message" data-id="${id}" aria-label="Message">${ic('chat',18)}</button>${u.system?'':`<div class="menu-wrap" style="margin:0"><button class="btn sq" data-act="menu" data-id="${menuId}" aria-label="More options">${ic('dots',18)}</button>${UI.menu===menuId?`<div class="dropdown menu"><button data-act="report" data-id="${id}" data-k="user">${ic('flag',17)} Report account</button>${isAdmin()?`<button data-act="adUser" data-id="${id}">${ic('shield',17)} Manage (admin)</button>`:''}</div>`:''}</div>`}`;
+  let h=`<div class="card prof"><div class="cover" style="${cover}"></div><div class="prof-top">${avHtml}<div class="prof-stats">${stats}</div></div><div class="prof-body">
+  <div><h1 class="prof-name">${esc(u.name)}${vb(u,22)}</h1><div class="muted small">@${esc(u.username)}${u.style?` · ${esc(u.style)}`:''}</div></div>${tierChip||(u.adminBadges||[]).length?`<div class="row" style="gap:6px;flex-wrap:wrap">${tierChip}${(u.adminBadges||[]).map(x=>`<span class="tier-chip staff">${ic('star',14)}${esc(x)}</span>`).join('')}</div>`:''}${isBlocked(id)?`<div class="soon-box" style="background:var(--short-soft)">${ic('ban',18)}<div class="small"><b>Suspended</b> · ${esc(u.blocked.reason||'')} · visible to admins only</div></div>`:''}${u.bio?`<div style="white-space:pre-wrap">${esc(u.bio)}</div>`:''}
+  <div class="row small muted" style="flex-wrap:wrap;gap:6px 14px">${u.location?`<span class="row" style="gap:5px">${ic('pin',15)}${esc(u.location)}</span>`:''}<span class="row" style="gap:5px">${ic('trend',15)}${trades.length} trades · ${wr} wins</span><span class="row" style="gap:5px">${ic('groups',15)}${gcount} groups</span><span>Joined ${new Date(u.joined).toLocaleDateString(undefined,{month:'short',year:'numeric'})}</span></div>
+  ${(u.markets||[]).length?`<div class="chips">${u.markets.map(m=>`<span class="tag">${esc(m)}</span>`).join('')}</div>`:''}${badgeRow(id,mine)}
+  <div class="prof-actions">${actions}</div></div></div>`;
   const tabs=[['posts','Posts'],['trades','Trades'],['journal','Journal'],...(myCourses.length?[['courses','Courses']]:[]),...(mine?[['saved','Saved']]:[])];
   if(!tabs.find(t=>t[0]===UI.profileTab))UI.profileTab='posts';
   h+=`<div class="tabs">${tabs.map(([k,l])=>`<button class="tab ${UI.profileTab===k?'on':''}" data-act="profileTab" data-k="${k}">${l}</button>`).join('')}</div>`;
-  if(mine&&UI.profileTab==='posts')h+=composer(null);
+  if(mine&&UI.profileTab==='posts')h+=isMob()?quickCompose(null):composer(null);
   if(UI.profileTab==='courses')return h+`<div class="c-grid">${myCourses.map(courseCard).join('')}</div>`;
   let list=UI.profileTab==='trades'?trades:UI.profileTab==='journal'?posts.filter(p=>p.type==='journal'||p.type==='recap'):UI.profileTab==='saved'?DB.posts.filter(p=>(p.saves||[]).includes(DB.session)&&canSee(p)):posts;
   h+=list.length?list.map(postCard).join(''):`<div class="card empty">${UI.profileTab==='saved'?'Posts you save show up here.':'Nothing here yet.'}</div>`;
@@ -1028,10 +1151,11 @@ function viewProfile(id){
 }
 function viewJournal(){
   const js=myJournal(),s=jStats(js),hasSample=js.some(e=>e.sample);
-  let h=`<div class="row between" style="flex-wrap:wrap;gap:12px"><div><h1>Journal</h1><div class="muted small">Private to you. Share any entry when you want feedback.</div></div><div class="row" style="flex-wrap:wrap"><button class="btn" data-act="pickHtml">${ic('upload',17)}Import HTML</button><button class="btn btn-primary" data-act="modal" data-k="entry">${ic('plus',18)}New entry</button></div></div>`;
+  let h=`<div class="row between" style="flex-wrap:wrap;gap:12px"><div><h1 class="ph">Journal</h1><div class="muted small">Private to you. Share any entry when you want feedback.</div></div><div class="row" style="flex-wrap:wrap"><button class="btn" data-act="pickHtml">${ic('upload',17)}Import HTML</button><button class="btn btn-primary" data-act="modal" data-k="entry">${ic('plus',18)}New entry</button></div></div>`;
   if(hasSample)h+=`<div class="sample-note">${ic('journal',18)}<span class="grow">These are example entries so you can see how the journal works.</span><button class="btn btn-sm" data-act="clearSamples">Remove examples</button></div>`;
   h+=`<div class="card" style="overflow:hidden"><div class="stats"><div class="stat"><div class="v">${s.n}</div><div class="k">Trades</div></div><div class="stat"><div class="v">${s.winrate}%</div><div class="k">Win rate</div></div><div class="stat"><div class="v ${s.totalR>=0?'r-pos':'r-neg'}">${fmtR(s.totalR)}</div><div class="k">Total</div></div><div class="stat"><div class="v ${s.pnl>=0?'r-pos':'r-neg'}">${fmtPnl(s.pnl)}</div><div class="k">P&amp;L</div></div></div><div style="padding:12px 8px 4px;border-top:1px solid var(--line)">${s.curve.length?equitySVG(s.curve):`<div class="empty">Your equity curve appears after your first entry.</div>`}</div><div class="row between" style="padding:10px 16px;border-top:1px solid var(--line);flex-wrap:wrap"><span class="small muted">Equity curve in R (risk units)</span>${s.n?`<button class="btn btn-sm" data-act="modal" data-k="share" data-kind="recap">${ic('share',16)}Share my stats</button>`:''}</div></div>`;
   if(!js.length)h+=`<div class="card empty">${ic('journal',28)}<div class="strong" style="color:var(--fg)">No entries yet</div><div>Add your first trade, or import an HTML statement from MT4/MT5 or your own journal.</div></div>`;
+  else if(isMob())h+=journalList(js);
   else h+=`<div class="card j-table-wrap"><table class="j"><thead><tr><th>Date</th><th>Pair</th><th>Side</th><th>Entry</th><th>Exit</th><th>Result</th><th>P&amp;L</th><th>Setup</th><th>Mood</th><th></th></tr></thead><tbody>${js.map(e=>`<tr><td>${fmtDate(e.date)}</td><td class="num strong">${esc(e.pair)}</td><td>${dirPill(e.dir)}</td><td class="num">${fmtPx(e.entry)}</td><td class="num">${fmtPx(e.exit)}</td><td class="num strong ${e.r>0?'r-pos':e.r<0?'r-neg':''}">${fmtR(e.r)}</td><td class="num ${e.pnl>0?'r-pos':e.pnl<0?'r-neg':''}">${fmtPnl(e.pnl)}</td><td>${esc(e.setup||'—')}</td><td>${esc(e.emotion||'—')}</td><td><div class="row" style="gap:2px;justify-content:flex-end"><button class="btn btn-sm" data-act="modal" data-k="share" data-kind="entry" data-id="${e.id}">${ic('share',15)}Share</button><button class="icon-btn" data-act="modal" data-k="entry" data-id="${e.id}" aria-label="Edit entry">${ic('edit',17)}</button><button class="icon-btn" data-act="delEntry" data-id="${e.id}" aria-label="Delete entry">${ic('trash',17)}</button></div></td></tr>`).join('')}</tbody></table></div>`;
   return h;
 }
@@ -1043,7 +1167,7 @@ function viewMessages(cid){
   h+=`</div><div class="chat">`;
   if(!c)h+=`<div class="empty" style="margin:auto">${ic('chat',30)}<div>Pick a conversation or start a new one.</div></div>`;
   else{const o=user(c.parts.find(p=>p!==DB.session));
-    h+=`<div class="chat-head"><button class="icon-btn mobile-only" data-act="nav" data-view="messages" aria-label="Back">${ic('back')}</button><button data-act="nav" data-view="profile" data-arg="${o.id}">${av(o,38)}</button><div class="grow">${ulink(o,'strong link')}<div class="tiny muted">@${esc(o.username)}</div></div></div><div class="chat-body" id="chat-body">`;
+    h+=`<div class="chat-head"><button class="icon-btn mobile-only" data-act="back" aria-label="Back">${ic('back')}</button><button data-act="nav" data-view="profile" data-arg="${o.id}">${av(o,38)}</button><div class="grow">${ulink(o,'strong link')}<div class="tiny muted">@${esc(o.username)}</div></div></div><div class="chat-body" id="chat-body">`;
     let lastT=0;for(const m of c.msgs){if(m.t-lastT>3*H)h+=`<div class="bub-time">${new Date(m.t).toLocaleString(undefined,{weekday:'short',hour:'2-digit',minute:'2-digit'})}</div>`;lastT=m.t;h+=`<div class="bub ${m.from===DB.session?'mine':'them'}">${esc(m.text)}</div>`}
     if(UI.typing===c.id)h+=`<div class="typing">${esc(o.name.split(' ')[0])} is typing…</div>`;
     h+=`</div><form class="chat-form" data-form="msg" data-id="${c.id}"><input class="input" id="chat-input" data-chat="1" placeholder="Write a message…" value="${esc(UI.chat)}" autocomplete="off"><button class="btn btn-primary" aria-label="Send">${ic('send',18)}</button></form>`}
@@ -1104,7 +1228,7 @@ function viewLeaderboard(){const tab=UI.lbTab;let rows=lbRows(),fmt,cls=()=> '';
   else if(tab==='help'){rows.sort((a,b)=>b.help-a.help);fmt=x=>fmtK(x.help)+' pts'}
   else{rows.sort((a,b)=>b.r-a.r);fmt=x=>fmtR(x.r);cls=x=>x.r>=0?'r-pos':'r-neg'}
   const sub=x=>tab==='help'?'likes received + comments':`${x.n} trades · ${x.wr}% wins`;
-  let h=`<div><h1>Leaderboard</h1><div class="muted small">Ranked by results from the last 30 days, not by followers. Closed trades with a stop loss count.</div></div><div class="tabs">${[['r','Total R'],['wr','Win rate'],['help','Most helpful']].map(([k,l])=>`<button class="tab ${tab===k?'on':''}" data-act="lbTab" data-k="${k}">${l}</button>`).join('')}</div>`;
+  let h=`<div><h1 class="ph">Leaderboard</h1><div class="muted small">Ranked by results from the last 30 days, not by followers. Closed trades with a stop loss count.</div></div><div class="tabs">${[['r','Total R'],['wr','Win rate'],['help','Most helpful']].map(([k,l])=>`<button class="tab ${tab===k?'on':''}" data-act="lbTab" data-k="${k}">${l}</button>`).join('')}</div>`;
   if(!rows.length)return h+`<div class="card empty">Nobody has 5 closed trades yet.</div>`;
   h+=`<div class="lb-podium">${rows.slice(0,3).map((x,i)=>`<button class="card pod ${i===0?'first':''} ${x.u.id===DB.session?'is-me':''}" data-act="nav" data-view="profile" data-arg="${x.u.id}"><span class="rank">${i+1}</span>${av(x.u,52)}<div class="strong small ellipsis" style="max-width:100%">${esc(x.u.name)}${vb(x.u,13)}</div><div class="metric ${cls(x)}">${fmt(x)}</div><div class="tiny muted">${sub(x)}</div></button>`).join('')}</div>`;
   if(rows.length>3)h+=`<div class="card" style="overflow:hidden">${rows.slice(3).map((x,i)=>`<button class="lb-row ${x.u.id===DB.session?'me':''}" data-act="nav" data-view="profile" data-arg="${x.u.id}"><span class="mono strong muted">${i+4}</span><div class="row" style="min-width:0">${av(x.u,36)}<div style="min-width:0"><div class="strong small ellipsis">${esc(x.u.name)}${vb(x.u,13)}${x.u.id===DB.session?' (you)':''}</div><div class="tiny muted">${sub(x)}</div></div></div><span class="mono strong ${cls(x)}">${fmt(x)}</span></button>`).join('')}</div>`;
@@ -1119,7 +1243,7 @@ function calcOut(){const c=UI.calc,bal=num(c.bal),rp=num(c.risk),e=num(c.entry),
   const risk=bal*rp/100,dist=Math.abs(e-sl),units=risk/dist,lots=units/cs,hasTp=!isNaN(tp)&&tp!==e,rr=hasTp?Math.abs(tp-e)/dist:null,profit=hasTp?units*Math.abs(tp-e):null;
   return `<div class="co big"><div class="k">Position size</div><div class="v">${lots>=100?fmtNum(lots,0):lots.toFixed(2)} lots</div><div class="tiny muted">${fmtNum(units,units<10?4:0)} ${INSTR[c.inst].unit}</div></div><div class="co"><div class="k">Money at risk</div><div class="v r-neg">$${fmtNum(risk)}</div></div><div class="co"><div class="k">Stop distance</div><div class="v">${fmtNum(dist,5)}</div></div><div class="co"><div class="k">Profit at target</div><div class="v r-pos">${profit!=null?'$'+fmtNum(profit):'—'}</div></div><div class="co"><div class="k">Risk : reward</div><div class="v">${rr!=null?'1 : '+rr.toFixed(2):'—'}</div></div><div class="co"><div class="k">Win rate needed</div><div class="v">${rr!=null?Math.round(100/(1+rr))+'%':'—'}</div></div>${rp>2?`<div class="co warn small" style="grid-column:1/-1">Risking more than 2% per trade makes a losing streak very hard to recover from.</div>`:''}`}
 function viewTools(){const c=UI.calc;const f=(id,k,l,ph)=>`<div class="field"><label for="${id}">${l}</label><input class="input mono" id="${id}" data-calc="${k}" inputmode="decimal" placeholder="${ph||''}" value="${esc(c[k])}"></div>`;
-  let h=`<div><h1>Tools</h1><div class="muted small">Calculators to use before every trade. Free, always.</div></div>`;
+  let h=`<div><h1 class="ph">Tools</h1><div class="muted small">Calculators to use before every trade. Free, always.</div></div>`;
   h+=`<div class="card" style="overflow:hidden"><div class="pad stack" style="gap:14px"><h2>Position size calculator</h2><div class="grid3">${f('t-bal','bal','Account balance ($)')}${f('t-risk','risk','Risk per trade (%)')}<div class="field"><label for="t-inst">Instrument</label><select class="input" id="t-inst" data-calc="inst">${Object.entries(INSTR).map(([k,v])=>`<option value="${k}" ${c.inst===k?'selected':''}>${v.label}</option>`).join('')}</select></div></div><div class="grid3">${f('t-entry','entry','Entry price')}${f('t-sl','sl','Stop loss')}${f('t-tp','tp','Take profit','optional')}</div>${c.inst==='custom'?`<div style="max-width:240px">${f('t-cs','cs','Units per 1 lot')}</div>`:''}</div><div class="calc-out" id="calc-out">${calcOut()}</div><div class="setup">Assumes the price is quoted in USD and your account is in USD. Contract sizes differ between brokers, so check yours.</div></div>`;
   h+=`<div class="card pad stack" style="gap:12px"><div><h2>How often do you need to win?</h2><div class="small muted">With a higher risk : reward you can lose more trades and still make money. This is the win rate where you break even.</div></div>${[1,1.5,2,2.5,3,4,5].map(rr=>{const p=Math.round(100/(1+rr));return `<div class="be-row"><span class="mono small">1 : ${rr}</span><div class="be-bar"><div style="width:${p}%"></div></div><span class="mono strong small">${p}%</span></div>`}).join('')}</div>`;
   return h}
@@ -1274,6 +1398,7 @@ async function doLogin(){const A=UI.af,E={};const idf=(A.login||'').trim().toLow
   }catch(e){UI.authErr='This browser cannot check passwords securely. Try Chrome or Safari.';render()}}
 
 /* ============ First-time setup ============ */
+function msResults(){const q=(UI.msq||'').trim();if(!q)return `<div class="small muted" style="padding:6px 2px">Try "gold", "ICT", "crypto" or a trader's name.</div>`;return searchResults(q)}
 function onboardView(){const u=me(),st=UI.obStep||1;const steps=`<div class="ob-steps">${[1,2,3].map(i=>`<i class="${i<=st?'on':''}"></i>`).join('')}</div>`;
   let body='';
   if(st===1)body=`<div class="eyebrow">Step 1 of 3</div><h1>Set up your profile</h1><div class="muted">Traders follow people they can recognise. Add a photo and say how you trade.</div>
@@ -1330,7 +1455,7 @@ function statusPillU(u){return isBlocked(u.id)?'<span class="pill pill-loss">Sus
 function viewAdmin(){
   if(!isAdmin())return `<div class="card empty">${ic('lock',28)}<div>This page is for admins only.</div></div>`;
   const tab=UI.adTab||'overview';const users=Object.values(DB.users).filter(u=>!u.system&&!u.staff);const openR=DB.reports.filter(r=>r.status==='open');
-  let h=`<div class="admin-head"><div class="row" style="gap:12px">${ic('shield',30)}<div><h1>Admin panel</h1><div class="small muted">Only admins see this page.</div></div></div></div>`;
+  let h=`<div class="admin-head"><div class="row" style="gap:12px">${ic('shield',30)}<div><h1 class="ph">Admin panel</h1><div class="small muted">Only admins see this page.</div></div></div></div>`;
   h+=`<div class="tabs">${[['overview','Overview'],['users',`Users (${users.length})`],['reports',`Reports${openR.length?` (${openR.length})`:''}`],['content','Content']].map(([k,l])=>`<button class="tab ${tab===k?'on':''}" data-act="adTab" data-k="${k}">${l}</button>`).join('')}</div>`;
   if(tab==='overview'){const wk=Date.now()-7*D;
     const tiles=[['Members',users.length,'groups'],['New this week',users.filter(u=>u.joined>wk).length,'user'],['Open reports',openR.length,'flag'],['Suspended',users.filter(u=>isBlocked(u.id)).length,'ban'],['Posts in 24h',DB.posts.filter(p=>Date.now()-p.t<D).length,'comment'],['Courses listed',DB.courses.filter(c=>!c.unlisted).length,'cap']];
@@ -1372,27 +1497,49 @@ function adminUserModal(id){const u=user(id),self=id===DB.session,b=isBlocked(id
   <div class="ad-sec"><h3>Message as OBT Team</h3><form class="r-form" data-form="adMsg" data-id="${id}"><input class="input" id="ad-msg" placeholder="Write a warning or a note…" autocomplete="off"><button class="btn btn-sm">${ic('send',15)}Send</button></form></div>`}
 function sendAsTeam(to,text){let c=DB.convos.find(x=>x.parts.includes('obt')&&x.parts.includes(to));if(!c){c={id:uid('c'),parts:['obt',to],msgs:[]};DB.convos.push(c)}c.msgs.push({from:'obt',text,t:Date.now()});notify(to,'<b>OBT Team</b> sent you a message',['messages',c.id])}
 
+
+/* ============ App navigation (mobile) ============ */
+const isMob=()=>!!(window.matchMedia&&matchMedia('(max-width: 760px)').matches);
+const ROOT=['home','groups','journal','menu'];
+function tabOf(v){if(v==='home')return'home';if(v==='groups'||v==='group')return'groups';if(v==='journal')return'journal';return'menu'}
+function pageTitle(){const v=UI.view;const T={groups:'Groups',journal:'Journal',messages:'Messages',academy:'Academy',leaderboard:'Leaderboard',tools:'Tools',news:'Market News',admin:'Admin',menu:'Menu'};
+  if(v==='group')return group(UI.arg)?.name||'Group';if(v==='course')return DB.courses.find(c=>c.id===UI.arg)?.title||'Course';
+  if(v==='profile'){const id=UI.arg||DB.session;return id===DB.session?'Your profile':'@'+user(id).username}return T[v]||''}
+function goBack(){const prev=(UI.hist||[]).pop();if(prev)go(prev.view,prev.arg,true);else go('home',null,true)}
+function appbar(){const v=UI.view,root=ROOT.includes(v),unread=myNotifs().filter(n=>!n.read).length;
+  const left=v==='home'?`<button data-act="nav" data-view="home" aria-label="OBT home">${BRAND(28)}</button>`:root?`<h1 class="ab-title">${esc(pageTitle())}</h1>`:`<button class="icon-btn ab-back" data-act="back" aria-label="Back">${ic('back',22)}</button><div class="ab-title sm ellipsis">${esc(pageTitle())}</div>`;
+  return `<header class="appbar">${left}<span class="grow"></span><button class="icon-btn" data-act="msearch" aria-label="Search">${ic('search',22)}</button><div style="position:relative"><button class="icon-btn" data-act="notif" aria-label="Notifications">${ic('bell',22)}${unread?`<span class="badge-dot">${unread}</span>`:''}</button>${UI.notif?notifPanel():''}</div>${v==='messages'?'':`<button class="icon-btn" data-act="nav" data-view="messages" aria-label="Messages">${ic('chat',22)}</button>`}</header>`}
+function quickCompose(fixed){const u=me(),f=fixed||'';return `<div class="card qc"><button class="qc-in" data-act="compose" data-k="post" data-id="${f}">${av(u,40)}<span class="qc-ph">${fixed?'Write something to the group…':'Share a trade or an idea…'}</span></button><div class="qc-acts"><button data-act="compose" data-k="trade" data-id="${f}">${ic('trend',18)}Trade</button><button data-act="compose" data-k="post" data-id="${f}">${ic('image',18)}Photo</button><button data-act="compose" data-k="journal" data-id="${f}">${ic('journal',18)}Journal</button></div></div>`}
+function journalList(js){return `<div class="card jl">${js.map(e=>`<div class="jl-row"><button class="jl-main" data-act="modal" data-k="entry" data-id="${e.id}"><div class="row" style="gap:8px"><span class="pair" style="font-size:.98rem">${esc(e.pair)}</span>${dirPill(e.dir)}</div><div class="tiny muted ellipsis">${fmtDate(e.date)}${e.setup?' · '+esc(e.setup):''}${e.emotion?' · '+esc(e.emotion):''}</div></button><div class="jl-r"><div class="mono strong ${e.r>0?'r-pos':e.r<0?'r-neg':''}">${fmtR(e.r)}</div><div class="tiny mono muted">${fmtPnl(e.pnl)}</div></div><button class="icon-btn" data-act="modal" data-k="share" data-kind="entry" data-id="${e.id}" aria-label="Share entry">${ic('share',18)}</button></div>`).join('')}</div>`}
+function viewMenu(){const u=me(),openR=isAdmin()?DB.reports.filter(r=>r.status==='open').length:0;
+  const tile=(attrs,i,l,sub)=>`<button class="tile" ${attrs}><span class="tile-ic">${ic(i,22)}</span><span class="strong">${l}</span><span class="tiny muted">${sub}</span></button>`;
+  let h=`<button class="card menu-me" data-act="nav" data-view="profile" data-arg="${u.id}">${av(u,54)}<div class="grow" style="min-width:0;text-align:left"><div class="strong ellipsis" style="font-size:1.05rem">${esc(u.name)}${vb(u,15)}</div><div class="small muted">See your profile</div></div><span class="streak-mini ${streak()?'on':''}" title="Day streak">${ic('flame',17)}${streak()}</span></button>`;
+  h+=`<div class="tile-grid">${tile('data-act="nav" data-view="messages"','chat','Messages','Chat with traders')}${tile('data-act="nav" data-view="academy"','cap','Academy',`${DB.courses.filter(c=>!c.unlisted).length} courses`)}${tile('data-act="nav" data-view="leaderboard"','trophy','Leaderboard','Top traders')}${tile('data-act="nav" data-view="tools"','calc','Tools','Position size')}${tile('data-act="menuSaved"','bookmark','Saved','Your saved posts')}${tile('data-act="nav" data-view="news"','news','Market News','Coming soon')}${isAdmin()?tile('data-act="nav" data-view="admin"','shield','Admin panel',openR?`${openR} open report${openR>1?'s':''}`:'All clear'):''}</div>`;
+  h+=`<div class="card menu-list"><button class="ml-row" data-act="theme">${ic(isDark()?'sun':'moon',20)}<span class="grow">Dark mode</span><span class="switch ${isDark()?'on':''}"></span></button>${document.documentElement.classList.contains('native')?'':`<button class="ml-row" data-act="modal" data-k="reset">${ic('reset',20)}<span class="grow">Reset demo data</span></button>`}<button class="ml-row danger" data-act="logout">${ic('logout',20)}<span class="grow">Log out</span></button></div><div class="tiny muted" style="text-align:center;padding:6px 0 4px">OBT · Only Better Traders · test version</div>`;
+  return h}
+
 /* ============ Shell ============ */
 function shell(){
   const u=me(),v=UI.view,nUnread=myNotifs().filter(n=>!n.read).length;
   const nav=(k,l,i,extra='')=>`<button class="nav-item ${v===k||(k==='groups'&&v==='group')||(k==='academy'&&v==='course')?'active':''}" data-act="nav" data-view="${k}">${ic(i)}${l}${extra}</button>`;
-  let h=`<header class="topbar"><div class="topbar-in"><button data-act="nav" data-view="home" aria-label="OBT home">${BRAND(32)}</button>${isAdmin()?`<button class="admin-pill" data-act="nav" data-view="admin">${ic('shield',14)}Admin</button>`:''}
+  const chatOpen=v==='messages'&&UI.arg&&isMob();
+  let h=(chatOpen?'':appbar())+`<header class="topbar"><div class="topbar-in"><button data-act="nav" data-view="home" aria-label="OBT home">${BRAND(32)}</button>${isAdmin()?`<button class="admin-pill" data-act="nav" data-view="admin">${ic('shield',14)}Admin</button>`:''}
   <div class="search">${ic('search',18)}<input id="search" placeholder="Search traders and groups" autocomplete="off" value="${esc(UI.search)}" aria-label="Search">${UI.search.trim()?searchResults():''}</div>
   <div class="top-actions"><div class="mobile-only" style="position:relative"><button class="icon-btn" data-act="more" aria-label="More pages">${ic('menu')}</button>${UI.more?`<div class="dropdown menu more-panel"><button data-act="nav" data-view="academy">${ic('cap',17)} Academy</button><button data-act="nav" data-view="leaderboard">${ic('trophy',17)} Leaderboard</button><button data-act="nav" data-view="tools">${ic('calc',17)} Tools</button>${isAdmin()?`<button data-act="nav" data-view="admin">${ic('shield',17)} Admin panel</button>`:''}<button data-act="nav" data-view="news">${ic('news',17)} Market News <span class="tag" style="margin-left:auto">Soon</span></button><hr><button data-act="logout">${ic('logout',17)} Log out</button></div>`:''}</div><button class="icon-btn" data-act="theme" aria-label="Switch theme" title="Switch light / dark">${ic(isDark()?'sun':'moon')}</button>
   <div style="position:relative"><button class="icon-btn" data-act="notif" aria-label="Notifications">${ic('bell')}${nUnread?`<span class="badge-dot">${nUnread}</span>`:''}</button>${UI.notif?notifPanel():''}</div>
   <button data-act="nav" data-view="profile" data-arg="${u.id}" aria-label="Your profile" style="margin-left:6px">${av(u,34)}</button></div></div></header>`;
   const wide=v==='messages'||v==='admin';
-  h+=`<div class="shell ${wide?'wide':''}"><nav class="side" aria-label="Main">${nav('home','Home','home')}${nav('groups','Groups','groups')}${nav('academy','Academy','cap')}${nav('journal','Journal','journal')}${nav('messages','Messages','chat')}${nav('leaderboard','Leaderboard','trophy')}${nav('tools','Tools','calc')}${isAdmin()?nav('admin','Admin','shield',DB.reports.filter(r=>r.status==='open').length?`<span class="soon" style="background:var(--short);color:#fff">${DB.reports.filter(r=>r.status==='open').length}</span>`:''):''}${nav('news','Market News','news','<span class="soon">Soon</span>')}${`<button class="nav-item ${v==='profile'&&(UI.arg||DB.session)===DB.session?'active':''}" data-act="nav" data-view="profile" data-arg="${u.id}">${ic('user')}Profile</button>`}
+  h+=`<div class="shell ${wide?'wide':''} ${chatOpen?'chat-mode':''}"><nav class="side" aria-label="Main">${nav('home','Home','home')}${nav('groups','Groups','groups')}${nav('academy','Academy','cap')}${nav('journal','Journal','journal')}${nav('messages','Messages','chat')}${nav('leaderboard','Leaderboard','trophy')}${nav('tools','Tools','calc')}${isAdmin()?nav('admin','Admin','shield',DB.reports.filter(r=>r.status==='open').length?`<span class="soon" style="background:var(--short);color:#fff">${DB.reports.filter(r=>r.status==='open').length}</span>`:''):''}${nav('news','Market News','news','<span class="soon">Soon</span>')}${`<button class="nav-item ${v==='profile'&&(UI.arg||DB.session)===DB.session?'active':''}" data-act="nav" data-view="profile" data-arg="${u.id}">${ic('user')}Profile</button>`}
   <button class="btn btn-primary btn-block side-cta" data-act="newTrade">${ic('plus',18)}Share a trade</button>
   <div class="side-foot"><div class="row">${av(u,30)}<div class="grow"><div class="small strong ellipsis">${esc(u.name)}</div><div class="tiny ellipsis">@${esc(u.username)}</div></div><span class="streak-mini ${streak()?'on':''}" title="Day streak">${ic('flame',15)}${streak()}</span></div><div class="row" style="margin-top:10px;gap:6px;flex-wrap:wrap"><button class="btn btn-ghost btn-sm" data-act="logout">${ic('logout',15)}Log out</button><button class="btn btn-ghost btn-sm" data-act="modal" data-k="reset">${ic('reset',15)}Reset</button></div></div></nav>
   <main class="main" id="main">${mainView()}</main>${wide?'':`<aside class="rail">${rail()}</aside>`}</div>`;
-  const bn=(k,l,i,arg)=>`<button class="bn ${v===k||(k==='groups'&&v==='group')?'active':''}" data-act="nav" data-view="${k}" ${arg?`data-arg="${arg}"`:''}>${ic(i,22)}${l}</button>`;
-  h+=`<nav class="bottom-nav" aria-label="Main">${bn('home','Home','home')}${bn('groups','Groups','groups')}${bn('journal','Journal','journal')}${bn('messages','Chat','chat')}${bn('profile','Profile','user',u.id)}</nav>`;
+  const tab=tabOf(v);const bn=(k,l,icon)=>`<button class="bn ${tab===k?'active':''}" data-act="nav" data-view="${k}" aria-label="${l}"><span class="bn-ic">${icon}</span><span>${l}</span></button>`;
+  if(!chatOpen)h+=`<nav class="bottom-nav" aria-label="Main">${bn('home','Home',ic('home',23))}${bn('groups','Groups',ic('groups',23))}<button class="bn bn-create" data-act="modal" data-k="create" aria-label="Create"><span class="bn-plus">${ic('plus',26)}</span></button>${bn('journal','Journal',ic('journal',23))}${bn('menu','Menu',`<span class="bn-av">${av(u,26)}</span>`)}</nav>`;
   return h+modalView();
 }
-function mainView(){switch(UI.view){case'groups':return viewGroups();case'group':return viewGroup(UI.arg);case'journal':return viewJournal();case'messages':return viewMessages(UI.arg);case'news':return viewNews();case'leaderboard':return viewLeaderboard();case'academy':return viewAcademy();case'course':return viewCourse(UI.arg);case'admin':return viewAdmin();case'tools':return viewTools();case'profile':return viewProfile(UI.arg||DB.session);default:return viewHome()}}
-function searchResults(){const q=UI.search.trim().toLowerCase();const us=Object.values(DB.users).filter(u=>!hiddenUser(u.id)).filter(u=>(u.name+' '+u.username).toLowerCase().includes(q)).slice(0,5);const gs=DB.groups.filter(g=>(g.name+' '+g.market).toLowerCase().includes(q)).slice(0,5);const cs=DB.courses.filter(c=>(c.title+' '+c.market+' '+c.type).toLowerCase().includes(q)).slice(0,4);
-  return `<div class="dropdown search-results">${!us.length&&!gs.length&&!cs.length?`<div class="sr-head small muted" style="padding:14px">No results for "${esc(UI.search)}"</div>`:''}${us.length?`<div class="sr-head eyebrow">Traders</div>`+us.map(u=>`<button class="sr-item" data-act="nav" data-view="profile" data-arg="${u.id}">${av(u,32)}<div><div class="small strong">${esc(u.name)}${vb(u,13)}</div><div class="tiny muted">@${esc(u.username)}</div></div></button>`).join(''):''}${gs.length?`<div class="sr-head eyebrow">Groups</div>`+gs.map(g=>`<button class="sr-item" data-act="nav" data-view="group" data-arg="${g.id}">${gav(g,32)}<div><div class="small strong">${esc(g.name)}</div><div class="tiny muted">${fmtK(memberCount(g))} members · ${g.privacy}</div></div></button>`).join(''):''}${cs.length?`<div class="sr-head eyebrow">Academy</div>`+cs.map(c=>`<button class="sr-item" data-act="nav" data-view="course" data-arg="${c.id}">${ic(c.type==='pdf'?'file':'play',22)}<div><div class="small strong">${esc(c.title)}</div><div class="tiny muted">${typeTxt(c)} · ${priceTxt(c)}</div></div></button>`).join(''):''}</div>`}
+function mainView(){switch(UI.view){case'groups':return viewGroups();case'group':return viewGroup(UI.arg);case'journal':return viewJournal();case'messages':return viewMessages(UI.arg);case'news':return viewNews();case'leaderboard':return viewLeaderboard();case'academy':return viewAcademy();case'course':return viewCourse(UI.arg);case'admin':return viewAdmin();case'menu':return viewMenu();case'tools':return viewTools();case'profile':return viewProfile(UI.arg||DB.session);default:return viewHome()}}
+function searchResults(qq){const raw=qq??UI.search;const q=raw.trim().toLowerCase();const us=Object.values(DB.users).filter(u=>!hiddenUser(u.id)).filter(u=>(u.name+' '+u.username).toLowerCase().includes(q)).slice(0,5);const gs=DB.groups.filter(g=>(g.name+' '+g.market).toLowerCase().includes(q)).slice(0,5);const cs=DB.courses.filter(c=>(c.title+' '+c.market+' '+c.type).toLowerCase().includes(q)).slice(0,4);
+  return `<div class="dropdown search-results">${!us.length&&!gs.length&&!cs.length?`<div class="sr-head small muted" style="padding:14px">No results for "${esc(raw)}"</div>`:''}${us.length?`<div class="sr-head eyebrow">Traders</div>`+us.map(u=>`<button class="sr-item" data-act="nav" data-view="profile" data-arg="${u.id}">${av(u,32)}<div><div class="small strong">${esc(u.name)}${vb(u,13)}</div><div class="tiny muted">@${esc(u.username)}</div></div></button>`).join(''):''}${gs.length?`<div class="sr-head eyebrow">Groups</div>`+gs.map(g=>`<button class="sr-item" data-act="nav" data-view="group" data-arg="${g.id}">${gav(g,32)}<div><div class="small strong">${esc(g.name)}</div><div class="tiny muted">${fmtK(memberCount(g))} members · ${g.privacy}</div></div></button>`).join(''):''}${cs.length?`<div class="sr-head eyebrow">Academy</div>`+cs.map(c=>`<button class="sr-item" data-act="nav" data-view="course" data-arg="${c.id}">${ic(c.type==='pdf'?'file':'play',22)}<div><div class="small strong">${esc(c.title)}</div><div class="tiny muted">${typeTxt(c)} · ${priceTxt(c)}</div></div></button>`).join(''):''}</div>`}
 function notifPanel(){const ns=myNotifs();return `<div class="dropdown notif-panel"><div class="row between" style="padding:12px 14px"><h3>Notifications</h3>${ns.some(n=>!n.read)?`<button class="small link" style="color:var(--accent);font-weight:600" data-act="readAll">Mark all read</button>`:''}</div><div style="max-height:380px;overflow-y:auto">${ns.length?ns.map(n=>`<button class="notif-item ${n.read?'':'unread'}" data-act="openNotif" data-id="${n.id}">${ic('bell',18)}<div class="grow"><div>${n.text}</div><div class="tiny muted">${ago(n.t)}</div></div></button>`).join(''):`<div class="empty small">You're all caught up.</div>`}</div></div>`}
 
 /* ============ Modals ============ */
@@ -1470,6 +1617,10 @@ function modalView(){
     return wrap(`Report this ${what}`,`<div class="small muted">Reports are private. The person you report won't know it was you.</div><div class="stack" style="gap:6px">${REPORT_REASONS.map(r=>`<label class="radio-row ${md.reason===r?'on':''}"><input type="radio" name="reason" value="${r}" data-act="mset" data-k="reason" data-v="${r}" ${md.reason===r?'checked':''}><span>${r}</span></label>`).join('')}</div><div class="field"><label for="rp-det">Details (optional)</label><textarea id="rp-det" rows="3" maxlength="500" placeholder="What happened? Links or dates help us." data-md="details">${esc(md.details||'')}</textarea></div><div class="err">${esc(md.err||'')}</div>`,
     `<button type="button" class="btn" data-act="closeModal">Cancel</button><button class="btn btn-primary">${ic('flag',16)}Send report</button>`,'report')}
   if(m.k==='adminUser')return wrap('Manage user',adminUserModal(m.id),`<button type="button" class="btn" data-act="nav" data-view="profile" data-arg="${m.id}">View profile</button><button type="button" class="btn btn-primary" data-act="closeModal">Done</button>`);
+  if(m.k==='create'){const o=(attrs,i,col,t,sub)=>`<button class="sheet-opt" ${attrs}><span class="so-ic" style="background:var(--${col}-soft);color:var(--${col})">${ic(i,22)}</span><span class="grow"><span class="strong" style="display:block">${t}</span><span class="small muted">${sub}</span></span></button>`;
+    return wrap('Create',`<div class="stack" style="gap:2px">${o('data-act="compose" data-k="trade"','trend','long','Share a trade','Entry, stop, target and result')}${o('data-act="compose" data-k="post"','image','accent','Post an idea or photo','Lessons, charts, questions')}${o('data-act="modal" data-k="entry"','journal','trust','Journal entry','Private, only you see it')}${o('data-act="addStory"','play','short','Add to your story','Disappears after 24 hours')}${o('data-act="modal" data-k="createGroup"','groups','trust','Create a group','For your market or style')}${o('data-act="modal" data-k="sellCourse"','cap','accent','Sell a course','Video or PDF on the Academy')}</div>`)}
+  if(m.k==='compose'){const g=UI.composeFixed?group(UI.composeFixed):null;return wrap(g?`Post in ${g.name}`:'Create post',composer(UI.composeFixed||null))}
+  if(m.k==='search')return wrap('Search',`<div class="search sheet-search">${ic('search',18)}<input id="msearch" data-msq="1" placeholder="Traders, groups, courses" autocomplete="off" value="${esc(UI.msq||'')}"></div><div id="msr" class="sheet-res">${msResults()}</div>`);
   if(m.k==='reset')return wrap('Reset demo data',`<div>This puts back the original example traders, groups and posts. Accounts and posts you created on this device will be removed.</div>`,`<button type="button" class="btn" data-act="closeModal">Cancel</button><button type="button" class="btn btn-primary" data-act="resetAll">Reset everything</button>`);
   return'';
 }
@@ -1502,10 +1653,11 @@ function render(){
   app.innerHTML=(DB.session&&DB.users[DB.session]?(me().onboarded===false?onboardView():shell()+storyView()):authView())+`<datalist id="pairs">${PAIRS.map(p=>`<option value="${p}">`).join('')}</datalist>`;
   if(fid){const el=document.getElementById(fid);if(el){el.focus({preventScroll:true});try{if(ss!=null)el.setSelectionRange(ss,se)}catch(e){}}}
   const cb=document.getElementById('chat-body');if(cb)cb.scrollTop=cb.scrollHeight;
+  const mn=document.getElementById('main'),lv=UI.view+'|'+UI.arg;if(mn&&UI._lv&&UI._lv!==lv)mn.classList.add('enter');UI._lv=lv;
   clearTimeout(storyTimer);if(UI.story&&!UI.storyPaused)storyTimer=setTimeout(storyNext,6000);
   document.body.style.overflow=UI.story?'hidden':'';
 }
-function go(view,arg){UI.view=view;UI.arg=arg||null;UI.menu=null;UI.notif=false;UI.more=false;UI.search='';if(view==='profile')UI.profileTab='posts';render();window.scrollTo(0,0)}
+function go(view,arg,fromBack){UI.hist??=[];if(!fromBack){if(ROOT.includes(view))UI.hist=[];else if(UI.view!==view||UI.arg!==(arg||null)){UI.hist.push({view:UI.view,arg:UI.arg});if(UI.hist.length>20)UI.hist.shift()}}UI.view=view;UI.arg=arg||null;UI.menu=null;UI.notif=false;UI.more=false;UI.search='';if(view==='profile')UI.profileTab='posts';render();window.scrollTo(0,0)}
 
 /* ============ Actions ============ */
 const pickState={k:null};
@@ -1610,6 +1762,10 @@ function act(a,el,ev){
   case'pickHtml':pickFile('html','.html,.htm,text/html');break;
   case'rmImg':UI.draft.img=null;render();break;
   case'menu':UI.menu=UI.menu===id?null:id;render();break;
+  case'back':goBack();break;
+  case'compose':UI.draft.type=k||'post';UI.composeFixed=id||null;UI.story=null;UI.mdraft={};UI.modal={k:'compose'};render();if(k==='post')setTimeout(()=>document.querySelector('.modal #d-text')?.focus(),60);break;
+  case'msearch':UI.msq='';UI.mdraft={};UI.modal={k:'search'};render();setTimeout(()=>document.getElementById('msearch')?.focus(),60);break;
+  case'menuSaved':go('profile',DB.session);UI.profileTab='saved';render();break;
   case'like':{const p=DB.posts.find(x=>x.id===id);const i=p.likes.indexOf(DB.session);if(i>=0)p.likes.splice(i,1);else{p.likes.push(DB.session);if(p.author!==DB.session)notify(p.author,`<b>${esc(me().name)}</b> liked your post`,['profile',p.author])}save();render();break}
   case'save':{const p=DB.posts.find(x=>x.id===id);p.saves??=[];const i=p.saves.indexOf(DB.session);if(i>=0){p.saves.splice(i,1);toast('Removed from saved')}else{p.saves.push(DB.session);toast('Saved to your profile')}save();render();break}
   case'comments':UI.open[id]=!UI.open[id];render();if(UI.open[id])document.getElementById('c-'+id)?.focus({preventScroll:true});break;
@@ -1650,7 +1806,7 @@ function onForm(f){
       p.trade={pair:d.pair.trim().toUpperCase(),dir:d.dir,entry:e,sl,tp,tf:d.tf,setup:d.setup.trim(),status:d.status}}
     if(d.type==='journal'){const e=DB.journal.find(x=>x.id===d.entryId);if(!e){toast('Pick a journal entry first.');return}const{owner,sample,id:_,...snap}=e;p.entry=snap;if(!p.img&&e.img)p.img=e.img}
     const g=dest?group(dest):null;if(g&&g.approval&&memOf(dest)!=='owner'){p.status='pending';p.pendingAt=Date.now()}
-    markActive();DB.posts.unshift(p);UI.draft={...freshDraft(),type:d.type,dest:d.dest,pair:d.pair,tf:d.tf};save();render();
+    if(UI.modal&&UI.modal.k==='compose')UI.modal=null;markActive();DB.posts.unshift(p);UI.draft={...freshDraft(),type:d.type,dest:d.dest,pair:d.pair,tf:d.tf};save();render();
     toast(p.status==='pending'?'Sent to the admins for approval':g?`Posted in ${g.name}`:'Posted to your profile');return}
   if(k==='comment'){const id=f.dataset.id,txt=(UI.cdraft[id]||'').trim();if(!txt)return;const p=DB.posts.find(x=>x.id===id);p.comments.push({by:DB.session,text:txt,t:Date.now()});markActive();UI.cdraft[id]='';if(p.author!==DB.session)notify(p.author,`<b>${esc(me().name)}</b> commented on your post`,['profile',p.author]);save();render();document.getElementById('c-'+id)?.focus({preventScroll:true});return}
   if(k==='msg'){const c=DB.convos.find(x=>x.id===f.dataset.id),txt=UI.chat.trim();if(!txt)return;c.msgs.push({from:DB.session,text:txt,t:Date.now()});UI.chat='';save();render();document.getElementById('chat-input')?.focus();
@@ -1710,6 +1866,7 @@ document.addEventListener('submit',e=>{e.preventDefault();onForm(e.target)});
 document.addEventListener('input',e=>{const t=e.target;
   if(t.dataset.d){UI.draft[t.dataset.d]=t.value;if(['entry','sl','tp'].includes(t.dataset.d)){const r=document.getElementById('rr-live');if(r)r.innerHTML=rrLive()}if(t.dataset.rerender)render();return}
   if(t.dataset.cd){UI.cdraft[t.dataset.cd]=t.value;return}
+  if(t.dataset.msq){UI.msq=t.value;const r=document.getElementById('msr');if(r)r.innerHTML=msResults();return}
   if(t.dataset.af){const k=t.dataset.af;UI.af[k]=t.value;if(UI.authErrs&&UI.authErrs[k]){delete UI.authErrs[k];t.classList.remove('bad');t.closest('.field')?.querySelector('.ferr')?.remove()}
     if(k==='password'){const m=document.getElementById('pw-meter');if(m)m.innerHTML=meterHtml(t.value)}if(k==='username'){const h=document.getElementById('un-hint');if(h)h.innerHTML=unHint(t.value)}return}
   if(t.dataset.ob){const u=me();u[t.dataset.ob]=t.value;save();return}
@@ -1727,6 +1884,7 @@ document.addEventListener('focusout',e=>{if(e.target.dataset&&e.target.dataset.s
 document.addEventListener('keydown',e=>{if(UI.story&&!e.target.dataset?.sreply){if(e.key==='ArrowRight'){storyNext();return}if(e.key==='ArrowLeft'){storyPrev();return}}if(e.key==='Escape'&&UI.story){UI.story=null;render();return}if(e.key==='Escape'){if(UI.modal){UI.modal=null;UI.mdraft={};render()}else if(UI.menu||UI.notif||UI.search){UI.menu=null;UI.notif=false;UI.search='';render()}}});
 try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>render())}catch(e){}
 
+let _wasMob=isMob();window.addEventListener('resize',()=>{const m=isMob();if(m!==_wasMob){_wasMob=m;if(DB.session)render()}});
 applyTheme();load();if(DB.session&&isBlocked(DB.session)){DB.session=null;UI.authTab='login';UI.authErr='Your account is suspended.'}render();setInterval(tick,2000);
 </script>
 
@@ -1743,7 +1901,7 @@ applyTheme();load();if(DB.session&&isBlocked(DB.session)){DB.session=null;UI.aut
       if(UI.modal){UI.modal=null;UI.mdraft={};render();return}
       if(UI.menu||UI.notif||UI.more||UI.search){UI.menu=null;UI.notif=false;UI.more=false;UI.search='';render();return}
       if(DB.session&&me()&&me().onboarded===false){if((UI.obStep||1)>1){UI.obStep--;render();return}P.App.exitApp();return}
-      if(DB.session&&UI.view!=='home'){go(isAdmin()&&UI.view!=='admin'?'admin':'home');return}
+      if(DB.session&&UI.view!=='home'){goBack();return}
       P.App.exitApp();
     })}catch(e){}
   }else if('serviceWorker' in navigator&&location.protocol==='https:'){
